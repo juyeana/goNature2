@@ -20,7 +20,7 @@ const reviews = require('./route/api/reviews')
 
 // const bookings = require('./routes/api/bookings');
 
-const AppError = require('./utils/appError');
+// const AppError = require('./utils/appError');
 // const globalErrorHandler = require('./utils/globalErrorHandler');
 
 
@@ -90,10 +90,10 @@ app.use('/api/v1/reviews', reviews);
 
 //unhandled route handlers
 
-app.all('*', (req, res, next) => {
-  //when next passes 'err' Express knows an error occurrs. Then it stops all following middlewares and pass the error to the global handling middleware
-  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
-});
+// app.all('*', (req, res, next) => {
+//   //when next passes 'err' Express knows an error occurrs. Then it stops all following middlewares and pass the error to the global handling middleware
+//   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
+// });
 
 //global error handling middleware
 // app.use(globalErrorHandler);
