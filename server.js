@@ -10,7 +10,7 @@ const passport = require('passport');
 
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
-// const helmet = require('helmet');
+const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 // const xss = require('xss-clean');
 const hpp = require('hpp');
@@ -33,7 +33,7 @@ const app = express();
 //***** MIDDLEWARES *****
 
 // set security HTTP header
-// app.use(helmet());
+app.use(helmet());
 
 //morgan : logger displays on the cosole
 // console.log(process.env.NODE_ENV);
