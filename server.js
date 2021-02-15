@@ -10,11 +10,11 @@ const passport = require('passport');
 
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
-const helmet = require('helmet');
+// const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
-const xss = require('xss-clean');
+// const xss = require('xss-clean');
 const hpp = require('hpp');
-const compression = require('compression');
+// const compression = require('compression');
 
 const tours = require('./route/api/tours');
 const users = require('./route/api/users');
@@ -22,8 +22,8 @@ const reviews = require('./route/api/reviews')
 
 // const bookings = require('./routes/api/bookings');
 
-const AppError = require('./utils/appError');
-const globalErrorHandler = require('./utils/globalErrorHandler');
+// const AppError = require('./utils/appError');
+// const globalErrorHandler = require('./utils/globalErrorHandler');
 
 
 const app = express();
@@ -33,7 +33,7 @@ const app = express();
 //***** MIDDLEWARES *****
 
 // set security HTTP header
-app.use(helmet());
+// app.use(helmet());
 
 //morgan : logger displays on the cosole
 // console.log(process.env.NODE_ENV);
@@ -55,7 +55,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(mongoSanitize());
 
 // Data sanitization against XSS (malicious html or javascript attached)
-app.use(xss());
+// app.use(xss());
 
 // prevent from parameter pollution
 // no duplicate parameters are allowed. All duplicate parameters except for the last one will be ignored
@@ -73,15 +73,15 @@ app.use(
   })
 );
 //limit 100 requests from the same IP in one hour.
-const limiter = rateLimit({
-  max: 100,
-  windowMs: 60 * 60 * 100,
-  message: 'Too many requests from this IP. Please try again in an hour',
-});
+// const limiter = rateLimit({
+//   max: 100,
+//   windowMs: 60 * 60 * 100,
+//   message: 'Too many requests from this IP. Please try again in an hour',
+// });
 
-app.use('/api', limiter);
+// app.use('/api', limiter);
 
-app.use(compression())
+// app.use(compression())
 //custom middleware to get the time of request
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
