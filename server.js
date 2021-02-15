@@ -14,7 +14,7 @@ const rateLimit = require('express-rate-limit');
 const mongoSanitize = require('express-mongo-sanitize');
 // const xss = require('xss-clean');
 const hpp = require('hpp');
-// const compression = require('compression');
+const compression = require('compression');
 
 const tours = require('./route/api/tours');
 const users = require('./route/api/users');
@@ -81,7 +81,7 @@ app.use(
 
 // app.use('/api', limiter);
 
-// app.use(compression())
+app.use(compression())
 //custom middleware to get the time of request
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
