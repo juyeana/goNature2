@@ -12,7 +12,7 @@ const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 // const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
-const xss = require('xss-clean');
+// const xss = require('xss-clean');
 const hpp = require('hpp');
 // const compression = require('compression');
 
@@ -55,7 +55,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(mongoSanitize());
 
 // Data sanitization against XSS (malicious html or javascript attached)
-app.use(xss());
+// app.use(xss());
 
 // prevent from parameter pollution
 // no duplicate parameters are allowed. All duplicate parameters except for the last one will be ignored
