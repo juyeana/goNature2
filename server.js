@@ -73,15 +73,15 @@ app.use(
   })
 );
 //limit 100 requests from the same IP in one hour.
-const limiter = rateLimit({
-  max: 100,
-  windowMs: 60 * 60 * 100,
-  message: 'Too many requests from this IP. Please try again in an hour',
-});
+// const limiter = rateLimit({
+//   max: 100,
+//   windowMs: 60 * 60 * 100,
+//   message: 'Too many requests from this IP. Please try again in an hour',
+// });
 
-app.use('/api', limiter);
+// app.use('/api', limiter);
 
-app.use(compression())
+// app.use(compression())
 //custom middleware to get the time of request
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
@@ -96,13 +96,13 @@ app.use('/api/v1/reviews', reviews);
 
 //unhandled route handlers
 
-app.all('*', (req, res, next) => {
-  //when next passes 'err' Express knows an error occurrs. Then it stops all following middlewares and pass the error to the global handling middleware
-  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
-});
+// app.all('*', (req, res, next) => {
+//   //when next passes 'err' Express knows an error occurrs. Then it stops all following middlewares and pass the error to the global handling middleware
+//   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
+// });
 
-//global error handling middleware
-app.use(globalErrorHandler);
+// //global error handling middleware
+// app.use(globalErrorHandler);
 
 
 
