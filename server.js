@@ -44,12 +44,8 @@ if (process.env.NODE_ENV === 'development') {
 // app.use('/uploads', express.static('uploads'))
 //express : parses the JSON body, buffer, string, and URL encoded data submitted using HTTP POST
 //body-parser was used to parse the body but now it was added to express.
-// app.use(express.static('.'));
-// app.use(session({secret:'cats', resave:false, saveUninitialized:true, cookie:{secure:true}}))
-// app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// app.use(cookieParser());
 
 // Data sanitization against NoSQL query injection
 app.use(mongoSanitize());
@@ -73,13 +69,13 @@ app.use(
   })
 );
 //limit 100 requests from the same IP in one hour.
-// const limiter = rateLimit({
-//   max: 100,
-//   windowMs: 60 * 60 * 100,
-//   message: 'Too many requests from this IP. Please try again in an hour',
-// });
+const limiter = rateLimit({
+  max: 100,
+  windowMs: 60 * 60 * 100,
+  message: 'Too many requests from this IP. Please try again in an hour',
+});
 
-// app.use('/api', limiter);
+app.use('/api', limiter);
 
 app.use(compression())
 //custom middleware to get the time of request
@@ -101,7 +97,7 @@ app.use('/api/v1/reviews', reviews);
 //   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 // });
 
-// //global error handling middleware
+//global error handling middleware
 // app.use(globalErrorHandler);
 
 
