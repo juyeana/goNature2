@@ -1,18 +1,16 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
-// const app = require('./app');
 const express = require('express');
 const path = require('path');
 const passport = require('passport');
-// console.log(process.env);
 
 
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
-// const helmet = require('helmet');
+// const helmet = require('helmet') => cause error during heroku deply;
 const mongoSanitize = require('express-mongo-sanitize');
-// const xss = require('xss-clean');
+// const xss = require('xss-clean')=> cause error during heroku deply;;
 const hpp = require('hpp');
 const compression = require('compression');
 
@@ -22,7 +20,7 @@ const reviews = require('./route/api/reviews')
 
 // const bookings = require('./routes/api/bookings');
 
-// const AppError = require('./utils/appError');
+const AppError = require('./utils/appError');
 // const globalErrorHandler = require('./utils/globalErrorHandler');
 
 
@@ -92,10 +90,10 @@ app.use('/api/v1/reviews', reviews);
 
 //unhandled route handlers
 
-// app.all('*', (req, res, next) => {
-//   //when next passes 'err' Express knows an error occurrs. Then it stops all following middlewares and pass the error to the global handling middleware
-//   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
-// });
+app.all('*', (req, res, next) => {
+  //when next passes 'err' Express knows an error occurrs. Then it stops all following middlewares and pass the error to the global handling middleware
+  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
+});
 
 //global error handling middleware
 // app.use(globalErrorHandler);
