@@ -16,19 +16,19 @@ const userSchema = new mongoose.Schema(
     },
     photo: {
       type: String,
-      
     },
-    imageName:{
+    imageName: {
       type: String,
-      
+      default:'default.jpg'
     },
-    imageData:{
+    imageData: {
       type: String,
+      default:'https://firebasestorage.googleapis.com/v0/b/gonature-a4df6.appspot.com/o/images%2Fdefault.jpg?alt=media&token=e93eec1c-bb8f-46f7-9e3b-75fb03b156eb',
     },
     role: {
       type: String,
       enum: ['user', 'guide', 'lead-guide', 'admin'],
-      default: 'user'
+      default: 'user',
     },
     password: {
       type: String,
