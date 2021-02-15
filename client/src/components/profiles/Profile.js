@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DefaultImg from '../../img/default.jpg';
-// import UploadImage from './UploadImage';
+import UploadImage from './UploadImage';
 import { changePassword } from '../../actions/authActions';
 class Profile extends Component {
   constructor() {
@@ -58,9 +58,9 @@ class Profile extends Component {
                   Your Profile
                 </h2>
               </div>
-              {/* <div>
+              <div>
                 <UploadImage />
-              </div> */}
+              </div>
               <div className='u-center-text'>
                 <h2 className='heading-secondary--small u-margin-top-big'>
                   Password Change
