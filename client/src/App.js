@@ -12,8 +12,8 @@ import Signup from './components/auth/Signup';
 import Packages from './components/packages/Packages';
 import PackageDetail from './components/packages/PackageDetail';
 import Profile from './components/profiles/Profile';
-// import BookPackage from './components/bookings/BookPackage';
-// import BookingSuccess from './components/bookings/BookingSuccess';
+import BookPackage from './components/bookings/BookPackage';
+import BookingSuccess from './components/bookings/BookingSuccess';
 
 import store from './store';
 import { logoutUser } from './actions/authActions';
@@ -55,16 +55,16 @@ class App extends Component {
             <Route exact path='/package-detail/:id' component={PackageDetail} />
             <Route exact path='/signup' component={Signup} />
 
-            {/* <Switch>
+            <Switch>
               <PrivateRoute exact path='/booking/:id' component={BookPackage} />
-            </Switch> */}
-            {/* <Switch>
+            </Switch>
+            <Switch>
               <PrivateRoute
                 exact
                 path='/booking-processed'
                 component={BookingSuccess}
               />
-            </Switch> */}
+            </Switch>
             <Switch>
               <PrivateRoute exact path='/logout' component={Login} />
             </Switch>

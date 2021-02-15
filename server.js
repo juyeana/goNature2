@@ -18,8 +18,7 @@ const tours = require('./route/api/tours');
 const users = require('./route/api/users');
 const reviews = require('./route/api/reviews')
 
-// const bookings = require('./routes/api/bookings');
-
+const bookings = require('./route/api/bookings')
 // const AppError = require('./utils/appError');
 // const globalErrorHandler = require('./utils/globalErrorHandler');
 
@@ -86,7 +85,7 @@ app.use((req, res, next) => {
 app.use('/api/v1/tours', tours);
 app.use('/api/v1/users', users);
 app.use('/api/v1/reviews', reviews);
-// app.use('/api/v1/bookings', bookings);
+app.use('/api/v1/bookings', bookings);
 
 //unhandled route handlers
 
@@ -98,14 +97,8 @@ app.use('/api/v1/reviews', reviews);
 //global error handling middleware
 // app.use(globalErrorHandler);
 
-
-
-
-
-
 //DB connection;
 
-// const db = require('./config/keys').mongoURI;
 
 const db = process.env.MONGO_URI;
 
