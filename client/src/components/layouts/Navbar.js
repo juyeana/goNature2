@@ -42,7 +42,7 @@ class Navbar extends Component {
           </Link>
         </li>
         <li className='nav__item'>
-          <Link to='signup' className='nav__link'>
+          <Link to='/signup' className='nav__link'>
             signup
           </Link>
         </li>
