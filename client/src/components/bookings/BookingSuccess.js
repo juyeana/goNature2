@@ -9,3 +9,4 @@ export default function Booking_success() {
     </div>
   );
 }
+

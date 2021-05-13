@@ -78,7 +78,8 @@ class UploadImage extends Component {
   componentDidMount() {
     if (this.props.auth.user.imageData) {
       this.setState({ firebaseImage: this.props.auth.user.imageData });
-    } else {
+    } 
+    else {
       this.setState({ firebaseImage: DefaultImg });
     }
   }

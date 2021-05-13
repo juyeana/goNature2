@@ -9,7 +9,7 @@ class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firebaseImage: DefaultImg,
+      firebaseImage: '',
     };
   }
 
@@ -23,6 +23,8 @@ class Navbar extends Component {
       this.setState({ firebaseImage: this.props.auth.user.imageData });
     }
   }
+
+  
 
   componentDidUpdate(prevProps) {
     // console.log(prevProps);
